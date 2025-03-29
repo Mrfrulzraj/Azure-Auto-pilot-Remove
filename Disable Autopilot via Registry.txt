@@ -7,3 +7,14 @@
 
 • reg add "HKLM\SYSTEM\CurrentControlSet\Control\CloudDomainJoin\TenantInfo" /v "DisableAutopilot" /t REG_DWORD /d 1 /f
 shutdown /r /t 0
+
+__________
+
+• del /f /q "C:\Windows\Provisioning\Autopilot\AutopilotConfigurationFile.json"
+mkdir "C:\Windows\Provisioning\Autopilot\AutopilotConfigurationFile.json"
+attrib +r +h +s "C:\Windows\Provisioning\Autopilot\AutopilotConfigurationFile.json"
+
+______________
+
+• reg add "HKLM\SOFTWARE\Microsoft\Provisioning\Diagnostics\AutoPilot" /v "CloudAssignedForcedEnrollment" /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Microsoft\Provisioning\Diagnostics\AutoPilot" /v "IsDevicePersonalized" /t REG_DWORD /d 1 /f
